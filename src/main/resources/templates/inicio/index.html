@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Consulta de municípios, zonas, seções e polos eleitorais de Pernambuco.">
+    <title>CEPE | Consulta Eleitoral de Pernambuco</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div th:replace="~{componentes/inicio :: navbar}"></div>
+<main class="cepe-page">
+    <section class="hero-panel mb-4">
+        <span class="badge rounded-pill text-bg-light mb-3">Pernambuco · consultas eleitorais</span>
+        <h1>Encontre as informações eleitorais que você precisa.</h1>
+        <p class="mt-3 mb-4">Consulte municípios, zonas, seções e polos em um só lugar, com acesso simples e rápido aos dados disponíveis.</p>
+        <a class="btn btn-light btn-lg" th:href="@{/listar-municipios}">Explorar municípios <span aria-hidden="true">→</span></a>
+    </section>
+
+</main>
+<div th:replace="~{componentes/inicio :: footer}"></div>
+<script th:src="@{/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

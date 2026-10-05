@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark cepe-navbar">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" th:href="@{/inicio}">
+            <span class="brand-mark" aria-hidden="true">C</span>
+            <span>CEPE <small class="d-block brand-subtitle">Consulta Eleitoral de Pernambuco</small></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/inicio}">Início</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownMunicipio" role="button" data-bs-toggle="dropdown" aria-expanded="false">Municípios</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMunicipio">
+                        <li><a class="dropdown-item" th:href="@{/listar-municipios}">Listar municípios</a></li>
+                        <li><a class="dropdown-item" th:href="@{/consultar-municipios-cod}">Consultar por código TSE</a></li>
+                        <li><a class="dropdown-item" th:href="@{/consultar-secoes-zonas}">Seções por município</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownZona" role="button" data-bs-toggle="dropdown" aria-expanded="false">Zonas</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownZona">
+                        <li><a class="dropdown-item" th:href="@{/listar-zonas}">Consultar zona</a></li>
+                        <li><a class="dropdown-item" th:href="@{/listar-secoes-por-zona}">Seções por zona</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownPolo" role="button" data-bs-toggle="dropdown" aria-expanded="false">Polos</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownPolo">
+                        <li><a class="dropdown-item" th:href="@{/polos/consultar-polo-detalhes}">Consultar polo</a></li>
+                        <li><a class="dropdown-item" th:href="@{/polos/consultar-polo-por-municipio}">Polo por município</a></li>
+                        <li><a class="dropdown-item" th:href="@{/polos/consultar-polo-por-zona}">Polo por zona</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownUsuario" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usuários</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUsuario">
+                        <li><a class="dropdown-item" th:href="@{/cadastrar-usuario}">Cadastrar usuário</a></li>
+                        <li><a class="dropdown-item" th:href="@{/consultar-usuario}">Consultar usuários</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<footer th:fragment="footer" class="cepe-footer mt-auto">
+    <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2">
+        <span>CEPE · Consulta Eleitoral de Pernambuco</span>
+        <span>Dados para consulta e apoio à informação eleitoral</span>
+    </div>
+</footer>
+</body>
+</html>

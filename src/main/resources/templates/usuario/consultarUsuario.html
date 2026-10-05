@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CEPE</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<div th:replace="componentes/inicio :: navbar"></div>
+<!-- Conteúdo Principal -->
+<div class="container mt-4">
+    <div class="container mt-4">
+        <div class="page-heading d-flex flex-column flex-sm-row justify-content-between align-items-sm-end gap-3">
+            <div><h1>Usuários cadastrados</h1><p>Consulte os cadastros existentes no sistema.</p></div>
+            <a th:href="@{/cadastrar-usuario}" class="btn btn-primary">Cadastrar usuário</a>
+        </div>
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead><tr><th>CPF</th><th>Nome</th><th>E-mail</th></tr></thead>
+                    <tbody>
+                    <tr th:if="${#lists.isEmpty(usuarios)}"><td colspan="3" class="text-center text-secondary py-4">Nenhum usuário cadastrado.</td></tr>
+                    <tr th:each="usuario : ${usuarios}">
+                        <td th:text="${usuario.cpf}">CPF</td><td th:text="${usuario.nome}">Nome</td><td th:text="${usuario.email}">E-mail</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer text-secondary" th:if="${not #lists.isEmpty(usuarios)}">
+                <span th:text="|${#lists.size(usuarios)} usuário(s)|">0 usuários</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script th:src="@{/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js}"></script>
+<div th:replace="componentes/inicio :: footer"></div>
+</body>
+</html>

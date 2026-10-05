@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CEPE</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<div th:replace="componentes/inicio :: navbar"></div>
+<!-- Conteúdo Principal -->
+<main class="cepe-page">
+    <div class="page-heading"><h1>Novo usuário</h1><p>Preencha os dados para criar um cadastro.</p></div>
+    <div class="card">
+        <div class="card-body">
+            <div th:if="${sucesso}" class="alert alert-success" role="status" th:text="${sucesso}"></div>
+            <div th:if="${erro}" class="alert alert-danger" role="alert" th:text="${erro}"></div>
+            <form th:action="@{/cadastrar-usuario/salvar}" th:object="${usuario}" method="post" class="row g-3">
+                <div class="col-12 col-md-6"><label for="cpf" class="form-label">CPF</label><input type="text" class="form-control" id="cpf" th:field="*{cpf}" placeholder="Somente números" autocomplete="off" required></div>
+                <div class="col-12 col-md-6"><label for="nome" class="form-label">Nome completo</label><input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Nome do usuário" autocomplete="name" required></div>
+                <div class="col-12"><label for="email" class="form-label">E-mail</label><input type="email" class="form-control" id="email" th:field="*{email}" placeholder="nome@exemplo.com" autocomplete="email" required></div>
+                <div class="col-12 d-flex gap-2 pt-2"><button type="submit" class="btn btn-primary">Salvar cadastro</button><a th:href="@{/consultar-usuario}" class="btn btn-outline-secondary">Cancelar</a></div>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+<!-- Bootstrap JS -->
+<script th:src="@{/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js}"></script>
+<div th:replace="componentes/inicio :: footer"></div>
+</body>
+</html>

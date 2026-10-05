@@ -1,0 +1,74 @@
+:root {
+    --cepe-ink: #172b3b;
+    --cepe-muted: #647584;
+    --cepe-green: #087b62;
+    --cepe-green-dark: #075b4b;
+    --cepe-surface: #ffffff;
+    --cepe-bg: #f3f7f6;
+    --cepe-line: #e0e9e6;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--cepe-ink);
+    background: var(--cepe-bg);
+}
+
+main { flex: 1; }
+
+.cepe-navbar {
+    background: linear-gradient(110deg, var(--cepe-green-dark), var(--cepe-green));
+    box-shadow: 0 3px 16px rgb(19 54 47 / 14%);
+}
+
+.cepe-navbar .navbar-brand { font-weight: 750; letter-spacing: .02em; }
+.cepe-navbar .nav-link { color: rgb(255 255 255 / 88%); }
+.cepe-navbar .nav-link:hover, .cepe-navbar .nav-link:focus { color: #fff; }
+.brand-mark {
+    width: 2.25rem;
+    height: 2.25rem;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid rgb(255 255 255 / 55%);
+    border-radius: .7rem;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+.brand-subtitle { color: rgb(255 255 255 / 70%); font-size: .62rem; font-weight: 400; letter-spacing: 0; }
+
+.cepe-page { width: min(100% - 2rem, 1120px); margin: 2.25rem auto 3rem; }
+.page-heading { margin-bottom: 1.4rem; }
+.page-heading h1, .page-heading h2 { margin-bottom: .3rem; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 750; }
+.page-heading p { margin: 0; color: var(--cepe-muted); }
+.cepe-card, .card { overflow: hidden; border: 1px solid var(--cepe-line); border-radius: 1rem; background: var(--cepe-surface); box-shadow: 0 8px 26px rgb(27 56 49 / 5%); }
+.card-header { padding: 1rem 1.25rem; border-bottom: 1px solid var(--cepe-line); background: #f8fbfa; color: var(--cepe-ink); }
+.card-header.bg-primary, .card-header.bg-info { border-bottom-color: transparent; color: #fff !important; background: linear-gradient(110deg, var(--cepe-green-dark), var(--cepe-green)) !important; }
+.card-header h1, .card-header h2, .card-header h3 { margin: 0; font-size: 1.25rem; font-weight: 700; }
+.card-body { padding: clamp(1rem, 3vw, 1.5rem); }
+.card-footer { border-top: 1px solid var(--cepe-line); background: #fbfdfc; }
+.table { margin-bottom: 0; vertical-align: middle; }
+.table thead th { color: #425766; font-size: .82rem; font-weight: 700; letter-spacing: .025em; }
+.table > :not(caption) > * > * { padding: .8rem .9rem; }
+.form-control, .form-select { min-height: 2.75rem; border-color: #d4e0dc; border-radius: .65rem; }
+.form-control:focus, .form-select:focus { border-color: #4cae97; box-shadow: 0 0 0 .2rem rgb(8 123 98 / 13%); }
+.btn { border-radius: .65rem; font-weight: 600; }
+.btn-primary { border-color: var(--cepe-green); background: var(--cepe-green); }
+.btn-primary:hover, .btn-primary:focus { border-color: var(--cepe-green-dark); background: var(--cepe-green-dark); }
+.alert { border-radius: .75rem; }
+.cepe-footer { padding: 1.25rem 0; border-top: 1px solid var(--cepe-line); color: var(--cepe-muted); background: #fff; font-size: .85rem; }
+.hero-panel { padding: clamp(1.5rem, 5vw, 3.5rem); border-radius: 1.25rem; color: white; background: radial-gradient(circle at 88% 18%, rgb(255 255 255 / 13%), transparent 22%), linear-gradient(120deg, #084f45, #087b62 70%, #159177); box-shadow: 0 16px 36px rgb(8 79 69 / 18%); }
+.hero-panel h1 { max-width: 720px; font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; letter-spacing: -.035em; }
+.hero-panel p { max-width: 650px; color: rgb(255 255 255 / 82%); font-size: 1.05rem; }
+.feature-card { height: 100%; transition: transform .16s ease, box-shadow .16s ease; }
+.feature-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgb(27 56 49 / 10%); }
+.feature-symbol { display: inline-grid; width: 2.8rem; height: 2.8rem; place-items: center; border-radius: .85rem; color: var(--cepe-green-dark); background: #e5f4ef; font-size: 1.2rem; font-weight: 800; }
+.feature-card a { color: inherit; text-decoration: none; }
+.feature-card a:hover { color: var(--cepe-green-dark); }
+
+@media (max-width: 575.98px) {
+    .cepe-page { width: min(100% - 1rem, 1120px); margin-top: 1.25rem; }
+    .table > :not(caption) > * > * { padding: .65rem; }
+}
