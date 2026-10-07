@@ -1,10 +1,5 @@
 # Projeto CEPE — Consulta Eleitoral de Pernambuco
 
-> **Sistema Web para Consulta Eleitoral e Gestão de Dados de Pernambuco**  
-> Aplicação desenvolvida em Java 21 com Spring Boot, Spring Data JPA, Spring MVC, Thymeleaf e PostgreSQL, organizada sob o padrão de arquitetura em camadas (**Package by Layer**).
-
----
-
 ## 📖 Sobre o Projeto
 
 O **CEPE (Consulta Eleitoral de Pernambuco)** é uma aplicação web desenvolvida para centralizar, organizar e consultar informações essenciais do ecossistema eleitoral do estado de Pernambuco. O sistema permite a consulta detalhada de **Zonas Eleitorais**, **Municípios**, **Polos** e **Seções de Votação**, além do cadastro e gerenciamento de **Usuários**.
