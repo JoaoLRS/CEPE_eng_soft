@@ -108,6 +108,34 @@ cepe/
 └── dto/                 # 📄 DTOs para Tráfego de Dados Seguro (UsuarioDto, etc.)
 ```
 
+### 🧩 Detalhamento das Camadas
+
+1. **Camada de Apresentação e Controle (*Controller & View Layer*)**
+   * **Pacote:** `cepe.controller` (juntamente com os templates HTML em `src/main/resources/templates` e arquivos estáticos em `src/main/resources/static`).
+   * **Componentes:** `MunicipioController`, `ZonaController`, `PoloController`, `UsuarioController`, `InicioController`.
+   * **Responsabilidade:** Capturar requisições HTTP do cliente/navegador, validar entradas, invocar a camada de serviço correspondente e injetar os dados nos modelos do Thymeleaf para renderização das telas Bootstrap.
+
+2. **Camada de Serviço e Regras de Negócio (*Service Layer*)**
+   * **Pacote:** `cepe.service` (e subpacote `cepe.service.importacao`).
+   * **Componentes:** `MunicipioService`, `ZonaService`, `PoloService`, `UsuarioService`, `ImportacaoService`.
+   * **Responsabilidade:** Isolar as regras de negócio da aplicação, validações, lógica de consultas eleitorais e orquestração do processo de importação automatizada a partir dos arquivos CSV (`secoes.csv`).
+
+3. **Camada de Acesso a Dados / Persistência (*Repository Layer*)**
+   * **Pacote:** `cepe.repository`.
+   * **Componentes:** `MunicipioRepository`, `ZonaRepository`, `PoloRepository`, `SecaoRepository`, `UsuarioRepository`.
+   * **Responsabilidade:** Interface de comunicação com o banco de dados PostgreSQL via **Spring Data JPA**. Realiza operações CRUD, consultas JPQL/SQL personalizadas e buscas paginadas.
+
+4. **Camada de Modelo de Domínio / Entidades (*Domain / Entity Layer*)**
+   * **Pacote:** `cepe.domain.entity`.
+   * **Componentes:** `Municipio`, `Zona`, `Polo`, `Secao`, `Usuario`.
+   * **Responsabilidade:** Mapeamento Objeto-Relacional (ORM) com Jakarta Persistence / JPA. Modela as tabelas do banco de dados relacional e define seus relacionamentos (`@ManyToOne`, `@ManyToMany`, `@OneToMany`, `@OneToOne`).
+
+5. **Camada de Transferência de Dados (*DTO Layer*)**
+   * **Pacote:** `cepe.dto` (`municipio`, `polo`, `secao`, `usuario`, `zona`).
+   * **Componentes:** Records/DTOs como `UsuarioDto`, `MunicipioDto`, `SecaoDto`, etc.
+   * **Responsabilidade:** Transportar dados entre as camadas da aplicação de forma segura e desacoplada, evitando expor diretamente as entidades JPA do banco para a camada visual.
+
+
 ### 🔁 Fluxo de Programação vs. Fluxo de Execução
 
 #### Ordem de Programação (Fluxo de Desenvolvimento - Bottom-Up)
